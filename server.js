@@ -159,6 +159,10 @@ app.use(connect_st({
   index: 'index.html'
 }));
 
+function keepAlive(){
+    app.listen(process.env.PORT, ()=>{console.log("Server is Ready!")});
+}
+
 http.createServer(app).listen(config.port, config.host);
 
 winston.info('listening on ' + config.host + ':' + config.port);
